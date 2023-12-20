@@ -3,7 +3,8 @@
 # %pip install lifelines
 
 import sys
-sys.path.append('/mnt/models')
+
+sys.path.append('/opt/models')
 
 import numpy as np
 import pandas as pd
@@ -12,12 +13,14 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from lifelines.utils import concordance_index
-from data_loader import MyDataset
-from data_loader import preproess_clinical_data
-import utils
-from model import Model
+
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import train_test_split
+
+from models.data_loader import MyDataset
+from models.data_loader import preprocess_clinical_data
+import models.utils as utils
+from models.model import Model
 
 # const
 m_length = 128
